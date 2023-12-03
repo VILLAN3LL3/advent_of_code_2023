@@ -4,7 +4,7 @@ static class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(Interactor.Interact());
+        Console.WriteLine(Interactor.Interact("InputData.txt"));
         Console.ReadLine();
     }
 }

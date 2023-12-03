@@ -24,4 +24,13 @@
     <ProjectReference Include="..\No_1\No_1.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestInputData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestInputDataWithSpelledNumbers.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
