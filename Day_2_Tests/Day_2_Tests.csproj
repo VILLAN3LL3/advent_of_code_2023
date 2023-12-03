@@ -21,14 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Day_1\Day_1.csproj" />
+    <ProjectReference Include="..\Day_2\Day_2.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="TestInputData.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="TestInputDataWithSpelledNumbers.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

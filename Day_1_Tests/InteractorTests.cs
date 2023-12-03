@@ -13,9 +13,9 @@ namespace Day_1_Tests
         }
 
         [TestCaseSource(nameof(TestSource))]
-        public void Test_Interact(string inputFileName, int expectedResult)
+        public void Test_CalculateSumOfCalibrationValues(string inputFileName, int expectedResult)
         {
-            var result = Interactor.Interact(inputFileName);
+            var result = Interactor.CalculateSumOfCalibrationValues(inputFileName);
             result.Should().Be(expectedResult);
         }
     }
