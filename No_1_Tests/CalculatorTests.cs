@@ -1,21 +1,13 @@
 using No_1;
 using FluentAssertions;
-using NUnit.Framework;
 
 namespace No_1_Tests;
 
 [TestFixture]
 public class Tests
 {
-    private Calculator calculator = new Calculator();
-
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
-    public void Gesamttest()
+    public void Test_CalculateCalibrationValueSum()
     {
         var input = new[] {
             "1abc2",
@@ -24,7 +16,7 @@ public class Tests
             "treb7uchet"
        };
 
-        var result = calculator.Calculate(input);
+        var result = Calculator.CalculateCalibrationValueSum(input);
 
         result.Should().Be(142);
     }
@@ -41,8 +33,8 @@ public class Tests
         }
 
     [TestCaseSource(nameof(TestSource))]
-    public void Einzeltest(string input, int expectedResult) {
-        var result = calculator.CalculateSingle(input);
+    public void Test_CalculateCalibrationValueSume(string input, int expectedResult) {
+        var result = Calculator.CalculateSingleCalibrationValue(input);
 
         result.Should().Be(expectedResult);
     }

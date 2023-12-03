@@ -1,29 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace No_1
 {
-    public class Calculator
+    public static partial class Calculator
     {
-        public int Calculate(string[] input) {
+        public static int CalculateCalibrationValueSum(string[] input) {
             var result = 0;
             foreach (var item in input)
             {
-                result = result + CalculateSingle(item);
+                result += CalculateSingleCalibrationValue(item);
             }
             return result;
         }
 
-        public int CalculateSingle(string input) {
-            Regex regex = new Regex(@"[^\d]");
-            var numbersOnly = regex.Replace(input, "");
+        public static int CalculateSingleCalibrationValue(string input) {
+            Regex regex = NoDigitsRegex();
+            var numbersOnly = regex.Replace(input, string.Empty);
             var first = numbersOnly[0];
-            var last = numbersOnly[numbersOnly.Count() - 1];
+            var last = numbersOnly[^1];
             var resultAsString = $"{first}{last}";
             return int.Parse(resultAsString);
         }
+
+        [GeneratedRegex(@"[^\d]")]
+        private static partial Regex NoDigitsRegex();
     }
 }
