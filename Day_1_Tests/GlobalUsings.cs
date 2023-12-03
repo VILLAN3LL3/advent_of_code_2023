@@ -1,3 +1,3 @@
 global using NUnit.Framework;
 global using FluentAssertions;
-global using No_1;
+global using Day_1;

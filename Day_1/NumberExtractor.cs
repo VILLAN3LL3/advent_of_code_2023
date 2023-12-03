@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace No_1
+namespace Day_1
 {
     public static partial class NumberExtractor
     {

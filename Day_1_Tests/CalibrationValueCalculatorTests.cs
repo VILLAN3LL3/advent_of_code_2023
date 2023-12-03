@@ -1,7 +1,7 @@
-using No_1;
+using Day_1;
 using FluentAssertions;
 
-namespace No_1_Tests;
+namespace Day_1_Tests;
 
 [TestFixture]
 public class CalibrationValueCalculatorTests

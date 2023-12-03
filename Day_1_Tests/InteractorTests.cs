@@ -1,4 +1,4 @@
-namespace No_1_Tests
+namespace Day_1_Tests
 {
     [TestFixture]
     public class InteractorTests

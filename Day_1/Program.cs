@@ -1,4 +1,4 @@
-﻿namespace No_1;
+﻿namespace Day_1;
 
 static class Program
 {
