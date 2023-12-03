@@ -2,7 +2,8 @@ namespace No_1
 {
     public static class Interactor
     {
-        public static int Interact(string inputFileName) {
+        public static int Interact(string inputFileName)
+        {
             var input = InputLoader.LoadInput(inputFileName);
 
             var result = 0;

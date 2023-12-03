@@ -5,7 +5,7 @@
 		public static string[] LoadInput(string fileName)
 		{
 			return File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, fileName));
-        }
+		}
 	}
 }
 

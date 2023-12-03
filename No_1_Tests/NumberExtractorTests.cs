@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace No_1_Tests
 {
     [TestFixture]
@@ -28,7 +23,8 @@ namespace No_1_Tests
         }
 
         [TestCaseSource(nameof(TestSource))]
-        public void Test_ExtractAllNumbersFromString(string input, string expectedResult) {
+        public void Test_ExtractAllNumbersFromString(string input, string expectedResult)
+        {
             var result = NumberExtractor.ExtractAllNumbersFromString(input);
 
             result.Should().Be(expectedResult);
