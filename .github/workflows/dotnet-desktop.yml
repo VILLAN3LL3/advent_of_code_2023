@@ -39,7 +39,7 @@ jobs:
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: |
-        for test in $(find . -name $env:Test_Project_Path)
+        for (test in $(find . -name $env:Test_Project_Path))
         do
           dotnet test $test
         done
