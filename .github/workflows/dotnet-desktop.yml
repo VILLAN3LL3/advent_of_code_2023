@@ -38,10 +38,11 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: for test in $(find . -name $env:Test_Project_Path)
-            do
-              dotnet test $test
-            done
+      run: |
+        for test in $(find . -name $env:Test_Project_Path)
+        do
+          dotnet test $test
+        done
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
