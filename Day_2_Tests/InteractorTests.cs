@@ -9,4 +9,10 @@ public class InteractorTests
         var result = Interactor.CalculateIdSumOfPossibleGamesForGivenBag(bag, "TestInputData.txt");
         result.Should().Be(8);
     }
+
+    [Test]
+    public void Test_CalculateTotalPowerOfGames() {
+        var result = Interactor.CalculateTotalPowerOfGames("TestInputData.txt");
+        result.Should().Be(2286);
+    }
 }

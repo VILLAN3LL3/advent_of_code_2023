@@ -20,4 +20,18 @@ public static class Interactor
         }
         return result;
     }
+
+    public static int CalculateTotalPowerOfGames(string inputFileName)
+    {
+        var input = InputDataLoader.LoadInputData(inputFileName);
+
+        var result = 0;
+        foreach (var line in input)
+        {
+            Game game = GameMapper.MapLineToGame(line);
+            result += GamePowerCalculator.CalculateGamePower(game.Drawings);
+
+        }
+        return result;
+    }
 }
