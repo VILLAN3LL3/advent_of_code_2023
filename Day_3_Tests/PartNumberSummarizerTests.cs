@@ -5,7 +5,7 @@ public class PartNumberSummarizerTests
 {
     [Test]
     public void Test_SumPartNumbers() {
-        IEnumerable<int> partNumbers = EngineSchematicTestData.TestPartNumbers;
+        IEnumerable<PartNumber> partNumbers = EngineSchematicTestData.TestPartNumbers;
 
         int result = PartNumberSummarizer.SumPartNumbers(partNumbers);
 

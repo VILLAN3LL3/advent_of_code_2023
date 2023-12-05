@@ -7,8 +7,10 @@ namespace Day_3
 {
     public class EngineSchematic
     {
-        public EngineSchematicCell[][] Cells { get; set; }
+        public EngineSchematicCell[][]? Cells { get; set; }
         public int MaxColumnIndex { get; set; }
-        public int maxRowIndex { get; set; }
+        public int MaxRowIndex { get; set; }
+
+        public int GearCount { get; set; }
     }
 }

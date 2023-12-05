@@ -2,15 +2,36 @@
 
 public static class EngineSchematicTestData
 {
-    public static IEnumerable<int> TestPartNumbers = new List<int> { 467, 35, 633, 617, 592, 755, 664, 598 };
+    public static List<PartNumber> TestPartNumbers = new List<PartNumber> {
+        new(467, 0),
+        new(35, 0),
+        new(633),
+        new(617, 1),
+        new(592),
+        new(755, 2),
+        new(664),
+        new(598, 2) };
 
+
+    /*
+    *           "467..114..",
+                "...*......",
+                "..35..633.",
+                "......#...",
+                "617*......",
+                ".....+.58.",
+                "..592.....",
+                "......755.",
+                "...$.*....",
+                ".664.598..",
+    */
     public static EngineSchematic TestSchematic = new EngineSchematic
     {
         Cells = [
                 [
                     new EngineSchematicCell { RowIndex = 0, Digit = "4", ColumnIndex = 0, IsStartDigit = true },
                     new EngineSchematicCell { RowIndex = 0, Digit = "6", ColumnIndex = 1 },
-                    new EngineSchematicCell { RowIndex = 0, Digit = "7", ColumnIndex = 2, IsAdjacentToSymbol = true },
+                    new EngineSchematicCell { RowIndex = 0, Digit = "7", ColumnIndex = 2, IsAdjacentToSymbol = true, AdjacentGearIds = [0] },
                     new EngineSchematicCell { RowIndex = 0, ColumnIndex = 3 },
                     new EngineSchematicCell { RowIndex = 0, ColumnIndex = 4 },
                     new EngineSchematicCell { RowIndex = 0, Digit = "1", ColumnIndex = 5, IsStartDigit = true },
@@ -23,7 +44,7 @@ public static class EngineSchematicTestData
                     new EngineSchematicCell { RowIndex = 1, ColumnIndex = 0 },
                     new EngineSchematicCell { RowIndex = 1, ColumnIndex = 1 },
                     new EngineSchematicCell { RowIndex = 1, ColumnIndex = 2 },
-                    new EngineSchematicCell { RowIndex = 1, ColumnIndex = 3, IsSymbol = true },
+                    new EngineSchematicCell { RowIndex = 1, ColumnIndex = 3, IsSymbol = true, GearId = 0 },
                     new EngineSchematicCell { RowIndex = 1, ColumnIndex = 4 },
                     new EngineSchematicCell { RowIndex = 1, ColumnIndex = 5 },
                     new EngineSchematicCell { RowIndex = 1, ColumnIndex = 6 },
@@ -34,8 +55,8 @@ public static class EngineSchematicTestData
                 [
                     new EngineSchematicCell { RowIndex = 2, ColumnIndex = 0 },
                     new EngineSchematicCell { RowIndex = 2, ColumnIndex = 1 },
-                    new EngineSchematicCell { RowIndex = 2, Digit = "3", ColumnIndex = 2, IsStartDigit = true, IsAdjacentToSymbol = true },
-                    new EngineSchematicCell { RowIndex = 2, Digit = "5", ColumnIndex = 3, IsAdjacentToSymbol = true },
+                    new EngineSchematicCell { RowIndex = 2, Digit = "3", ColumnIndex = 2, IsStartDigit = true, IsAdjacentToSymbol = true, AdjacentGearIds = [0] },
+                    new EngineSchematicCell { RowIndex = 2, Digit = "5", ColumnIndex = 3, IsAdjacentToSymbol = true, AdjacentGearIds = [0] },
                     new EngineSchematicCell { RowIndex = 2, ColumnIndex = 4 },
                     new EngineSchematicCell { RowIndex = 2, ColumnIndex = 5 },
                     new EngineSchematicCell { RowIndex = 2, Digit = "6", ColumnIndex = 6, IsStartDigit = true, IsAdjacentToSymbol = true },
@@ -58,8 +79,8 @@ public static class EngineSchematicTestData
                 [
                     new EngineSchematicCell { RowIndex = 4, Digit = "6", ColumnIndex = 0, IsStartDigit = true },
                     new EngineSchematicCell { RowIndex = 4, Digit = "1", ColumnIndex = 1 },
-                    new EngineSchematicCell { RowIndex = 4, Digit = "7", ColumnIndex = 2, IsAdjacentToSymbol = true },
-                    new EngineSchematicCell { RowIndex = 4, ColumnIndex = 3, IsSymbol = true },
+                    new EngineSchematicCell { RowIndex = 4, Digit = "7", ColumnIndex = 2, IsAdjacentToSymbol = true, AdjacentGearIds = [1] },
+                    new EngineSchematicCell { RowIndex = 4, ColumnIndex = 3, IsSymbol = true, GearId = 1 },
                     new EngineSchematicCell { RowIndex = 4, ColumnIndex = 4 },
                     new EngineSchematicCell { RowIndex = 4, ColumnIndex = 5 },
                     new EngineSchematicCell { RowIndex = 4, ColumnIndex = 6 },
@@ -98,7 +119,7 @@ public static class EngineSchematicTestData
                     new EngineSchematicCell { RowIndex = 7, ColumnIndex = 3 },
                     new EngineSchematicCell { RowIndex = 7, ColumnIndex = 4 },
                     new EngineSchematicCell { RowIndex = 7, ColumnIndex = 5 },
-                    new EngineSchematicCell { RowIndex = 7, Digit = "7", ColumnIndex = 6, IsStartDigit = true, IsAdjacentToSymbol = true },
+                    new EngineSchematicCell { RowIndex = 7, Digit = "7", ColumnIndex = 6, IsStartDigit = true, IsAdjacentToSymbol = true, AdjacentGearIds = [2] },
                     new EngineSchematicCell { RowIndex = 7, Digit = "5", ColumnIndex = 7 },
                     new EngineSchematicCell { RowIndex = 7, Digit = "5", ColumnIndex = 8 },
                     new EngineSchematicCell { RowIndex = 7, ColumnIndex = 9 },
@@ -109,7 +130,7 @@ public static class EngineSchematicTestData
                     new EngineSchematicCell { RowIndex = 8, ColumnIndex = 2 },
                     new EngineSchematicCell { RowIndex = 8, ColumnIndex = 3, IsSymbol = true },
                     new EngineSchematicCell { RowIndex = 8, ColumnIndex = 4 },
-                    new EngineSchematicCell { RowIndex = 8, ColumnIndex = 5, IsSymbol = true },
+                    new EngineSchematicCell { RowIndex = 8, ColumnIndex = 5, IsSymbol = true, GearId = 2 },
                     new EngineSchematicCell { RowIndex = 8, ColumnIndex = 6 },
                     new EngineSchematicCell { RowIndex = 8, ColumnIndex = 7 },
                     new EngineSchematicCell { RowIndex = 8, ColumnIndex = 8 },
@@ -121,12 +142,15 @@ public static class EngineSchematicTestData
                     new EngineSchematicCell { RowIndex = 9, Digit = "6", ColumnIndex = 2, IsAdjacentToSymbol = true },
                     new EngineSchematicCell { RowIndex = 9, Digit = "4", ColumnIndex = 3, IsAdjacentToSymbol = true },
                     new EngineSchematicCell { RowIndex = 9, ColumnIndex = 4, },
-                    new EngineSchematicCell { RowIndex = 9, Digit = "5", ColumnIndex = 5,  IsStartDigit = true, IsAdjacentToSymbol = true },
-                    new EngineSchematicCell { RowIndex = 9, Digit = "9", ColumnIndex = 6, IsAdjacentToSymbol = true },
+                    new EngineSchematicCell { RowIndex = 9, Digit = "5", ColumnIndex = 5,  IsStartDigit = true, IsAdjacentToSymbol = true, AdjacentGearIds = [2] },
+                    new EngineSchematicCell { RowIndex = 9, Digit = "9", ColumnIndex = 6, IsAdjacentToSymbol = true, AdjacentGearIds = [2] },
                     new EngineSchematicCell { RowIndex = 9, Digit = "8", ColumnIndex = 7 },
                     new EngineSchematicCell { RowIndex = 9, ColumnIndex = 8 },
                     new EngineSchematicCell { RowIndex = 9, ColumnIndex = 9 },
                 ],
-            ], MaxColumnIndex = 9, maxRowIndex = 9
+            ],
+        MaxColumnIndex = 9,
+        MaxRowIndex = 9,
+        GearCount = 3
     };
 }

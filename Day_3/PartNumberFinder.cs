@@ -1,12 +1,16 @@
 ﻿using System.Text;
+using Shared;
 
 namespace Day_3;
 
 public static class PartNumberFinder
 {
-    public static List<int> FindPartNumbers(EngineSchematic engineSchematic)
+    public static List<PartNumber> FindPartNumbers(EngineSchematic engineSchematic)
     {
-        var result = new List<int>();
+        var result = new List<PartNumber>();
+
+        if(engineSchematic.Cells is null) return result;
+
         EngineSchematicCell[][] cells = engineSchematic.Cells;
         
         for (int row = 0; row < cells.Length; row++)
@@ -15,6 +19,8 @@ public static class PartNumberFinder
             {
                 EngineSchematicCell cell = cells[row][col];
                 if(cell.IsStartDigit) {
+                    var partNumber = new PartNumber();
+                    partNumber.AdjacentGearIds.AddRange(cell.AdjacentGearIds);
                     var isPartNumber = cell.IsAdjacentToSymbol;
                     var numberStringBuilder = new StringBuilder(cell.Digit);
                     var nextCol = col + 1;
@@ -22,11 +28,13 @@ public static class PartNumberFinder
                     {
                         EngineSchematicCell nextCell = cells[row][nextCol];
                         isPartNumber = isPartNumber || nextCell.IsAdjacentToSymbol;
+                        partNumber.AdjacentGearIds.AddRange(nextCell.AdjacentGearIds);
                         numberStringBuilder.Append(nextCell.Digit);
                         nextCol++;
                     }
                     if(isPartNumber) {
-                        result.Add(int.Parse(numberStringBuilder.ToString()));
+                        partNumber.Value = int.Parse(numberStringBuilder.ToString());
+                        result.Add(partNumber);
                     }
                 }
             }

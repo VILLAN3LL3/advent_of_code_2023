@@ -2,7 +2,7 @@
 
 public static class PartNumberSummarizer
 {
-    public static int SumPartNumbers(IEnumerable<int> partNumbers) {
-        return partNumbers.Sum();
+    public static int SumPartNumbers(IEnumerable<PartNumber> partNumbers) {
+        return partNumbers.Sum(p => p.Value);
     }
 }

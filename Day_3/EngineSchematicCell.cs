@@ -8,5 +8,7 @@ namespace Day_3
         public bool IsStartDigit { get; set; }
         public bool IsSymbol { get; set; }
         public bool IsAdjacentToSymbol { get; set; }
+        public int? GearId { get; set; }
+        public List<int> AdjacentGearIds { get; set; } = [];
     }
 }

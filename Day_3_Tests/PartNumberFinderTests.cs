@@ -5,9 +5,9 @@ public class PartNumberFinderTests
 {
     [Test]
     public void Test_FindPartNumbers() {
-        var expectedResult = EngineSchematicTestData.TestPartNumbers;
+        IEnumerable<PartNumber> expectedResult = EngineSchematicTestData.TestPartNumbers;
 
-        List<int> result = PartNumberFinder.FindPartNumbers(EngineSchematicTestData.TestSchematic);
+        List<PartNumber> result = PartNumberFinder.FindPartNumbers(EngineSchematicTestData.TestSchematic);
 
         result.Should().BeEquivalentTo(expectedResult);
     }
