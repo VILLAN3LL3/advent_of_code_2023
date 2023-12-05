@@ -7,7 +7,7 @@ public class PartNumberFinderTests
     public void Test_FindPartNumbers() {
         var expectedResult = EngineSchematicTestData.TestPartNumbers;
 
-        List<int> result = PartNumberFinder.FindPartNumbers(EngineSchematicTestData.TestMatrix);
+        List<int> result = PartNumberFinder.FindPartNumbers(EngineSchematicTestData.TestSchematic);
 
         result.Should().BeEquivalentTo(expectedResult);
     }

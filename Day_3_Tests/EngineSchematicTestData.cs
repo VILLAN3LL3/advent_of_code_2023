@@ -3,8 +3,10 @@
 public static class EngineSchematicTestData
 {
     public static IEnumerable<int> TestPartNumbers = new List<int> { 467, 35, 633, 617, 592, 755, 664, 598 };
-    
-    public static EngineSchematicCell[][] TestMatrix = [
+
+    public static EngineSchematic TestSchematic = new EngineSchematic
+    {
+        Cells = [
                 [
                     new EngineSchematicCell { RowIndex = 0, Digit = "4", ColumnIndex = 0, IsStartDigit = true },
                     new EngineSchematicCell { RowIndex = 0, Digit = "6", ColumnIndex = 1 },
@@ -125,5 +127,6 @@ public static class EngineSchematicTestData
                     new EngineSchematicCell { RowIndex = 9, ColumnIndex = 8 },
                     new EngineSchematicCell { RowIndex = 9, ColumnIndex = 9 },
                 ],
-            ];
+            ], MaxColumnIndex = 9, maxRowIndex = 9
+    };
 }

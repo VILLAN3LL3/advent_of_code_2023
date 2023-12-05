@@ -4,23 +4,23 @@ namespace Day_3;
 
 public static class PartNumberFinder
 {
-    public static List<int> FindPartNumbers(EngineSchematicCell[][] engineSchematicMatrix)
+    public static List<int> FindPartNumbers(EngineSchematic engineSchematic)
     {
         var result = new List<int>();
-        var maxColIndex = engineSchematicMatrix[0].Length - 1;
+        EngineSchematicCell[][] cells = engineSchematic.Cells;
         
-        for (int row = 0; row < engineSchematicMatrix.Length; row++)
+        for (int row = 0; row < cells.Length; row++)
         {
-            for (int col = 0; col < engineSchematicMatrix[row].Length; col++)
+            for (int col = 0; col < cells[row].Length; col++)
             {
-                EngineSchematicCell cell = engineSchematicMatrix[row][col];
+                EngineSchematicCell cell = cells[row][col];
                 if(cell.IsStartDigit) {
                     var isPartNumber = cell.IsAdjacentToSymbol;
                     var numberStringBuilder = new StringBuilder(cell.Digit);
                     var nextCol = col + 1;
-                    while (nextCol <= maxColIndex && engineSchematicMatrix[row][nextCol].Digit is not null)
+                    while (nextCol <= engineSchematic.MaxColumnIndex && cells[row][nextCol].Digit is not null)
                     {
-                        EngineSchematicCell nextCell = engineSchematicMatrix[row][nextCol];
+                        EngineSchematicCell nextCell = cells[row][nextCol];
                         isPartNumber = isPartNumber || nextCell.IsAdjacentToSymbol;
                         numberStringBuilder.Append(nextCell.Digit);
                         nextCol++;

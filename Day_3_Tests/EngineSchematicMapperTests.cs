@@ -19,9 +19,9 @@ namespace Day_3_Tests
                 ".664.598..",
             };
 
-            EngineSchematicCell[][] expected = EngineSchematicTestData.TestMatrix;
+            EngineSchematic expected = EngineSchematicTestData.TestSchematic;
 
-            EngineSchematicCell[][] result = EngineSchematicMapper.MapLinesToEngineSchematicMatrix(lines);
+            EngineSchematic result = EngineSchematicMapper.MapLinesToEngineSchematicMatrix(lines);
 
             result.Should().BeEquivalentTo(expected);
         }

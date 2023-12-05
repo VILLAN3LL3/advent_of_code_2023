@@ -10,9 +10,9 @@ namespace Day_3
         [GeneratedRegex(@"[^0-9.]")]
         private static partial Regex SymbolRegex();
 
-        public static EngineSchematicCell[][] MapLinesToEngineSchematicMatrix(IEnumerable<string> lines)
+        public static EngineSchematic MapLinesToEngineSchematicMatrix(IEnumerable<string> lines)
         {
-            EngineSchematicCell[][] matrix = lines
+            EngineSchematicCell[][] cells = lines
                 .Select((row, rowIndex) => row
                     .ToCharArray()
                     .Select((character, columnIndex) => new EngineSchematicCell
@@ -25,12 +25,12 @@ namespace Day_3
                     .ToArray())
                 .ToArray();
 
-            var maxColIndex = matrix[0].Length - 1;
-            var maxRowIndex = matrix.Length - 1;
+            var maxColIndex = cells[0].Length - 1;
+            var maxRowIndex = cells.Length - 1;
 
-            EnrichMatrixWithAdditionalInformation(matrix, maxColIndex, maxRowIndex);
+            EnrichMatrixWithAdditionalInformation(cells, maxColIndex, maxRowIndex);
 
-            return matrix;
+            return new EngineSchematic { Cells = cells, MaxColumnIndex = maxColIndex, maxRowIndex = maxRowIndex };
         }
 
         private static void EnrichMatrixWithAdditionalInformation(EngineSchematicCell[][] matrix, int maxColIndex, int maxRowIndex)

@@ -6,8 +6,8 @@ namespace Day_3
     {
         public static int SumAllPartNumbersInEngineSchematics(string inputDataFileName) {
             var input = InputDataLoader.LoadInputData(inputDataFileName);
-            EngineSchematicCell[][] matrix = EngineSchematicMapper.MapLinesToEngineSchematicMatrix(input);
-            List<int> partNumbers = PartNumberFinder.FindPartNumbers(matrix);
+            EngineSchematic schematic = EngineSchematicMapper.MapLinesToEngineSchematicMatrix(input);
+            List<int> partNumbers = PartNumberFinder.FindPartNumbers(schematic);
             return PartNumberSummarizer.SumPartNumbers(partNumbers);
         }
     }
