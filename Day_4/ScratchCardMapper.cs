@@ -5,6 +5,11 @@ public static class ScratchCardMapper
     private static readonly char[] cratchCardSeparators = [':', '|'];
     private static readonly string[] scratchCardNumberSeparator = ["  ", " "];
 
+    public static List<ScratchCard> MapScratchCards(IEnumerable<string> lines)
+    {
+        return lines.Select(MapScratchCard).ToList();
+    }
+
     public static ScratchCard MapScratchCard(string scratchCardLine)
     {
         var scratchCardObject = new ScratchCard();

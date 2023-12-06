@@ -14,4 +14,11 @@ public static class Interactor
         }
         return result;
     }
+
+    public static int CalculateTotalScratchCardCount(string fileName) {
+        var lines = InputDataLoader.LoadInputData(fileName);
+        List<ScratchCard> scratchCards = ScratchCardMapper.MapScratchCards(lines);
+        List<ScratchCardWithCopies> scratchCardsWithCopies = ScratchCardCopier.CopyScratchCards(scratchCards);
+        return ScratchCardCopySummarizer.SummarizeScratchCardCopies(scratchCardsWithCopies);
+    }
 }
