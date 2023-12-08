@@ -1,18 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Day_5_Tests
 {
-    public class AlmanacTestData
+    public static class AlmanacTestData
     {
-        public static Almanac TestAlmanac => new Almanac() {
+        public static Seed Seed1 => new()
+
+        {
+            SeedRangeStart = 79,
+            SeedRangeLength = 14
+        };
+
+        public static Seed Seed2 => new()
+
+        {
+            SeedRangeStart = 55,
+            SeedRangeLength = 13
+        };
+
+        public static Almanac TestAlmanac => new()
+        {
             Seeds = [
-                79,
-                14,
-                55,
-                13
+                Seed1,
+                Seed2
             ],
             CategoryMaps = [
                 new CategoryMap() {
@@ -149,7 +157,7 @@ namespace Day_5_Tests
                 }
             ]
         };
-        
+
         public static IEnumerable<string> TestLines => [
             "seeds: 79 14 55 13",
             "",
