@@ -13,7 +13,7 @@ namespace Day_6_Tests
                 "Distance:  9  40  200"
             ];
 
-        public static List<Race> TestRaces => [
+        public static List<Race> TestRacesPart1 => [
             new Race {
                 Duration = 7,
                 RecordDistance = 9
@@ -27,5 +27,11 @@ namespace Day_6_Tests
                 RecordDistance = 200
             }
         ];
+
+        public static Race TestRacePart2 => new Race 
+        {
+            Duration = 71530,
+            RecordDistance = 940200
+        };
     }
 }

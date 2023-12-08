@@ -2,7 +2,7 @@ namespace Day_6
 {
     public class Race
     {
-        public int Duration { get; set; }
-        public int RecordDistance { get; set; }
+        public long Duration { get; set; }
+        public long RecordDistance { get; set; }
     }
 }

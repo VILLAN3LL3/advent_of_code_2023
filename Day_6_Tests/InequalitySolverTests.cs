@@ -12,16 +12,16 @@ namespace Day_6_Tests
         {
             get
             {
-                yield return new TestCaseData(-7, 9, new List<int> { 2, 3, 4, 5 });
-                yield return new TestCaseData(-15, 40, new List<int> { 4, 5, 6, 7, 8, 9, 10, 11 });
-                yield return new TestCaseData(-30, 200, new List<int> { 11, 12, 13, 14, 15, 16, 17, 18, 19 });
+                yield return new TestCaseData(-7, 9, new List<long> { 2, 3, 4, 5 });
+                yield return new TestCaseData(-15, 40, new List<long> { 4, 5, 6, 7, 8, 9, 10, 11 });
+                yield return new TestCaseData(-30, 200, new List<long> { 11, 12, 13, 14, 15, 16, 17, 18, 19 });
             }
         }
 
         [TestCaseSource(nameof(TestSource))]
-        public void Test_SolveQuadraticInequality(int p, int q, List<int> expectedResult)
+        public void Test_SolveQuadraticInequality(long p, long q, List<long> expectedResult)
         {
-            List<int> result = InequalitySolver.SolveQuadraticInequality(p, q);
+            List<long> result = InequalitySolver.SolveQuadraticInequality(p, q);
 
             result.Should().BeEquivalentTo(expectedResult);
         }

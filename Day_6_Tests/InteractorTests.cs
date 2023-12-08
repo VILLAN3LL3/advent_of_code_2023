@@ -4,11 +4,19 @@ namespace Day_6_Tests
     public class InteractorTests
     {
         [Test]
-        public void Test_CalculateProductOfNumberOfWaysToBeatRecord()
+        public void CalculateProductOfNumberOfWaysToBeatRecordPart1()
         {
-            long result = Interactor.CalculateProductOfNumberOfWaysToBeatRecord("TestInputData.txt");
+            long result = Interactor.CalculateProductOfNumberOfWaysToBeatRecordPart1("TestInputData.txt");
 
             result.Should().Be(288);
+        }
+
+        [Test]
+        public void CalculateProductOfNumberOfWaysToBeatRecordPart2()
+        {
+            long result = Interactor.CalculateProductOfNumberOfWaysToBeatRecordPart2("TestInputData.txt");
+
+            result.Should().Be(71503);
         }
     }
 }

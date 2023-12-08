@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Day_6
 {
-    public static class RaceMapper
+    public static class RaceMapperPart1
     {
         public static List<Race> MapRaces(IEnumerable<string> lines) {
             var races = new List<Race>();
