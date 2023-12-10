@@ -2,11 +2,11 @@ namespace Day_7;
 
 public class HandByTypeComparer : IComparer<Hand>
 {
-    private readonly Func<Hand, int> _handValueCalculator;
+    private readonly Func<Hand, int> _typeValueCalculator;
 
-    public HandByTypeComparer(Func<Hand, int> handValueCalculator)
+    public HandByTypeComparer(Func<Hand, int> typeValueCalculator)
     {
-        _handValueCalculator = handValueCalculator;
+        _typeValueCalculator = typeValueCalculator;
     }
 
     public int Compare(Hand? x, Hand? y)
@@ -15,9 +15,9 @@ public class HandByTypeComparer : IComparer<Hand>
         {
             return 0;
         }
-        int handXValue = _handValueCalculator(x);
-        int handYValue = _handValueCalculator(y);
+        int handXValue = _typeValueCalculator(x);
+        int handYValue = _typeValueCalculator(y);
 
-        return handYValue.CompareTo(handXValue);
+        return handXValue.CompareTo(handYValue);
     }
 }

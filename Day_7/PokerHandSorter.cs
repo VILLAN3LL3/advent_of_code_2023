@@ -3,10 +3,13 @@
 public static class PokerHandSorter
 {
 
-    public static IEnumerable<Hand> SortHands(IEnumerable<Hand> hands)
+    public static IEnumerable<Hand> SortHands(
+        IEnumerable<Hand> hands, 
+        Func<Hand, int> typeValueCalculator, 
+        IReadOnlyDictionary<char, int> cardValueDictionary)
     {
         return hands
-            .OrderByDescending(x => x, new HandByTypeComparer(HandValueCalculator.CalculateHandValue))
-            .ThenByDescending(x => x, new HandByHighCardComparer());
+            .OrderBy(x => x, new HandByTypeComparer(typeValueCalculator))
+            .ThenBy(x => x, new HandByHighCardComparer(cardValueDictionary));
     }
 }

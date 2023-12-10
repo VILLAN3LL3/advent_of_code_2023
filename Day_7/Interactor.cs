@@ -8,7 +8,15 @@ namespace Day_7
         {
             var lines = InputDataLoader.LoadInputData(inputFileName);
             List<Hand> hands = HandMapper.MapHands(lines);
-            IEnumerable<Hand> sortedHands = PokerHandSorter.SortHands(hands);
+            IEnumerable<Hand> sortedHands = PokerHandSorter.SortHands(hands, TypeValueCalculator.CalculateTypeValue, Config.CardValueDictionary);
+            return WinningsCalculator.CalculateWinnings(sortedHands);
+        }
+
+        public static int CalculateTotalWinningsWithJokers(string inputFileName)
+        {
+            var lines = InputDataLoader.LoadInputData(inputFileName);
+            List<Hand> hands = HandMapper.MapHands(lines);
+            IEnumerable<Hand> sortedHands = PokerHandSorter.SortHands(hands, TypeValueCalculatorWithJokers.CalculateTypeValue, Config.CardValueDictionaryWithJoker);
             return WinningsCalculator.CalculateWinnings(sortedHands);
         }
     }

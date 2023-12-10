@@ -2,6 +2,14 @@ namespace Day_7;
 
 public class HandByHighCardComparer : IComparer<Hand>
 {
+    private readonly IReadOnlyDictionary<char, int> _cardValueDictionary;
+
+
+    public HandByHighCardComparer(IReadOnlyDictionary<char, int> cardValueDictionary)
+    {
+        _cardValueDictionary = cardValueDictionary;
+    }
+
     public int Compare(Hand? x, Hand? y)
     {
         if (x == null || y == null)
@@ -11,9 +19,9 @@ public class HandByHighCardComparer : IComparer<Hand>
 
         for (int i = 0; i < x.Cards.Count; i++)
         {
-            var cardValueX = Config.CardValueDictionary[x.Cards[i]];
-            var cardValueY = Config.CardValueDictionary[y.Cards[i]];
-            var compareResult = cardValueY.CompareTo(cardValueX);
+            var cardValueX = _cardValueDictionary[x.Cards[i]];
+            var cardValueY = _cardValueDictionary[y.Cards[i]];
+            var compareResult = cardValueX.CompareTo(cardValueY);
             if (compareResult != 0)
             {
                 return compareResult;

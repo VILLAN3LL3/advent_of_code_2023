@@ -4,7 +4,7 @@ namespace Day_7
 {
     public static class Config
     {
-        public static IImmutableDictionary<char, int> CardValueDictionary => ImmutableSortedDictionary.CreateRange(new List<KeyValuePair<char, int>> {
+        public static IReadOnlyDictionary<char, int> CardValueDictionary => ImmutableSortedDictionary.CreateRange(new List<KeyValuePair<char, int>> {
             new('2', 2),
             new('3', 3),
             new('4', 4),
@@ -18,6 +18,22 @@ namespace Day_7
             new('Q', 12),
             new('K', 13),
             new('A', 14)
+        });
+
+        public static IReadOnlyDictionary<char, int> CardValueDictionaryWithJoker => ImmutableSortedDictionary.CreateRange(new List<KeyValuePair<char, int>> {
+            new('J', 1),
+            new('2', 2),
+            new('3', 3),
+            new('4', 4),
+            new('5', 5),
+            new('6', 6),
+            new('7', 7),
+            new('8', 8),
+            new('9', 9),
+            new('T', 10),
+            new('Q', 11),
+            new('K', 12),
+            new('A', 13)
         });
 
         public enum HandType

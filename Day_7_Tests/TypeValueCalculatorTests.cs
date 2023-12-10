@@ -1,7 +1,7 @@
 namespace Day_7_Tests
 {
     [TestFixture]
-    public class HandValueCalculatorTests
+    public class TypeValueCalculatorTests
     {
     private static IEnumerable<TestCaseData> TestSource
     {
@@ -20,8 +20,8 @@ namespace Day_7_Tests
     }
 
     [TestCaseSource(nameof(TestSource))]
-        public void Test_CalculateHandValue(Hand hand, int expectedResult) {
-            var result = HandValueCalculator.CalculateHandValue(hand);
+        public void Test_CalculateTypeValue(Hand hand, int expectedResult) {
+            var result = TypeValueCalculator.CalculateTypeValue(hand);
 
             result.Should().Be(expectedResult);
         }

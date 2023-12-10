@@ -33,5 +33,13 @@ namespace Day_7_Tests
             Hand2,
             Hand5
         ];
+
+        public static List<Hand> SortedTestHandsWithJokers => [
+            Hand1,
+            Hand3,
+            Hand2,
+            Hand5,
+            Hand4
+        ];
     }
 }

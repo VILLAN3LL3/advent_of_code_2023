@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Day_7
 {
-    public static class HandValueCalculator
+    public static class TypeValueCalculator
     {
-        public static int CalculateHandValue(Hand hand)
+        public static int CalculateTypeValue(Hand hand)
         {
             return CalculateValueFromFrequency(CountCardValueFrequency(hand));
         }
