@@ -8,5 +8,11 @@ namespace Day_9_Tests
             var result = Interactor.SummarizeExtrapolatedNextValues("TestInputData.txt");
             result.Should().Be(114);
         }
+
+        [Test]
+        public void Test_SummarizeExtrapolatedPreviousValues() {
+            var result = Interactor.SummarizeExtrapolatedPreviousValues("TestInputData.txt");
+            result.Should().Be(2);
+        }
     }
 }
