@@ -15,7 +15,11 @@ namespace Day_8_Tests
         [TestCaseSource(nameof(TestSource))]
         public void Test_NavigateThroughDesert(DesertMap desertMap, int expectedResult)
         {
-            var result = DesertNavigator.NavigateThroughDesert(desertMap);
+            var result = DesertNavigator.NavigateThroughDesert(
+                desertMap, 
+                WaypointDefiner.IsStartWaypoint, 
+                WaypointDefiner.isEndWaypoint,
+                LeastCommonMultipleCalculator.CalculateLeastCommonMultiple);
             result.Should().Be(expectedResult);
         }
     }

@@ -1,31 +1,42 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Day_8
 {
     public static class DesertNavigator
     {
-        public static int NavigateThroughDesert(DesertMap desertMap)
+        private static long NavigateThroughDesertForOneWaypoint(DesertMap desertMap, string startWaypoint, Func<string, bool> isEndWaypoint)
         {
             int direction;
-            var currentWaypoint = "AAA";
-            var goalWaypoint = "ZZZ";
-            var visitedWaypoints = new List<string>();
+            var currentWaypoint = startWaypoint;
+            long visitedWaypointsCount = 0;
             IDictionary<string, List<string>> waypointMapping = desertMap.WaypointMapping;
 
-            while (!currentWaypoint.Equals(goalWaypoint))
+            while (!isEndWaypoint(currentWaypoint))
             {
                 List<string> waypoint = waypointMapping[currentWaypoint];
-                direction = visitedWaypoints.Count >= desertMap.DirectionInstructions.Count
-                    ? desertMap.DirectionInstructions[visitedWaypoints.Count % desertMap.DirectionInstructions.Count]
-                    : desertMap.DirectionInstructions[visitedWaypoints.Count];
+                direction = visitedWaypointsCount >= desertMap.DirectionInstructions.Count
+                    ? desertMap.DirectionInstructions[(int)(visitedWaypointsCount % desertMap.DirectionInstructions.Count)]
+                    : desertMap.DirectionInstructions[(int)visitedWaypointsCount];
                 currentWaypoint = waypoint[direction];
-                visitedWaypoints.Add(currentWaypoint);
+                visitedWaypointsCount++;
             }
 
-            return visitedWaypoints.Count;
+            return visitedWaypointsCount;
+        }
+        
+        
+        public static long NavigateThroughDesert(
+            DesertMap desertMap, 
+            Func<string, bool> isStartWaypoint, 
+            Func<string, bool> isEndWaypoint,
+            Func<IEnumerable<long>, long> aggregate)
+        {
+            IDictionary<string, List<string>> waypointMapping = desertMap.WaypointMapping;
+            IEnumerable<string> currentWaypoints = waypointMapping.Keys.Where(isStartWaypoint);
+
+            ParallelQuery<long> visitedWaypointsCount = currentWaypoints
+                .AsParallel()
+                .Select(waypoint => NavigateThroughDesertForOneWaypoint(desertMap, waypoint, isEndWaypoint));
+            
+            return aggregate(visitedWaypointsCount);
         }
     }
 }

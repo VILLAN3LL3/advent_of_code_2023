@@ -18,5 +18,12 @@ namespace Day_8_Tests
             var result = Interactor.CalculateStepCountToGoal(inputFileName);
             result.Should().Be(expectedResult);
         }
+
+        [Test]
+        public void Test_CalculateStepCountToGoalForGhosts()
+        {
+            var result = Interactor.CalculateStepCountToGoalForGhosts("TestInputData3.txt");
+            result.Should().Be(6);
+        }
     }
 }
