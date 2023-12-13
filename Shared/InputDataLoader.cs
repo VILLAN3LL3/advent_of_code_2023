@@ -1,6 +1,6 @@
 ﻿namespace Shared;
 
-public class InputDataLoader
+public static class InputDataLoader
 {
 public static string[] LoadInputData(string fileName)
 		{
