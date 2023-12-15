@@ -1,19 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Shared;
 
 namespace Day_11
 {
     public static class Interactor
     {
-        public static int CalculateSumOfShortestPathsBetweenAllGalaxies(string inputFileName) {
+        public static long CalculateSumOfShortestPathsBetweenAllGalaxies(string inputFileName, int expansionFactor) {
             var lines = InputDataLoader.LoadInputData(inputFileName);
             List<Galaxy> galaxies = GalaxyFinder.FindGalaxiesInUniverse(lines);
             List<int> expandableRows = UniverseExpander.FindExpandableRows(lines);
             List<int> expandableColumns = UniverseExpander.FindExpandableColumns(lines);
-            return PathLengthFinder.FindShortestPathBetweenGalaxies(galaxies, expandableRows, expandableColumns);
+            return DistanceCalculator.CalculateShortestDistanceBetweenGalaxies(galaxies, expandableRows, expandableColumns, expansionFactor);
         }
     }
 }

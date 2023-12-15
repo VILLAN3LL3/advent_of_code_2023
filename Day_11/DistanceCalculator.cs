@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Shared;
-
 namespace Day_11
 {
-    public static class PathLengthFinder
+    public static class DistanceCalculator
     {
-        public static int FindShortestPathBetweenGalaxies(List<Galaxy> galaxies, List<int> expandableRows, List<int> expandableColumns)
+        public static long CalculateShortestDistanceBetweenGalaxies(
+            List<Galaxy> galaxies, 
+            List<int> expandableRows, 
+            List<int> expandableColumns,
+            int expansionFactor)
         {
-            int distance = 0;
+            long distance = 0;
 
             IEnumerable<Tuple<Galaxy, Galaxy>> combinations = from galaxy1 in galaxies
                                from galaxy2 in galaxies
@@ -27,7 +25,7 @@ namespace Day_11
                                   where expandableRows.Contains(row)
                                   select new { })
                 {
-                    distance += 1;
+                    distance += expansionFactor - 1;
                 }
 
                 IEnumerable<int> columnsToCheck = Enumerable.Range(Math.Min(galaxy1.ColumnIndex, galaxy2.ColumnIndex), Math.Max(galaxy1.ColumnIndex, galaxy2.ColumnIndex) - Math.Min(galaxy1.ColumnIndex, galaxy2.ColumnIndex));
@@ -35,7 +33,7 @@ namespace Day_11
                                   where expandableColumns.Contains(col)
                                   select new { })
                 {
-                    distance += 1;
+                    distance += expansionFactor - 1;
                 }
             }
 

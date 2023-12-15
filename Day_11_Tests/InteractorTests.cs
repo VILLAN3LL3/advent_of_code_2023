@@ -8,10 +8,12 @@ namespace Day_11_Tests
     [TestFixture]
     public class InteractorTests
     {
-        [Test]
-        public void Test_CalculateSumOfShortestPathsBetweenAllGalaxies() {
-            var result = Interactor.CalculateSumOfShortestPathsBetweenAllGalaxies("TestInputData.txt");
-            result.Should().Be(374);
+        [TestCase(2, 374)]
+        [TestCase(10, 1030)]
+        [TestCase(100, 8410)]
+        public void Test_CalculateSumOfShortestPathsBetweenAllGalaxies(int expansionFactor, int expectedDistance) {
+            var result = Interactor.CalculateSumOfShortestPathsBetweenAllGalaxies("TestInputData.txt", expansionFactor);
+            result.Should().Be(expectedDistance);
         }
     }
 }
